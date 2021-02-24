@@ -28,3 +28,15 @@ You have unapplied migrations; your app may not work properly until they are app
 
 February 19, 2021 - 15:50:53 Django version 3.1, using settings 'mysite.settings' Starting development server at http://127.0.0.1:8000/ Quit the server with CONTROL-C.
 
+Changing the port
+
+By default, the runserver command starts the development server on the internal IP at port 8000.
+
+If you want to change the server’s port, pass it as a command-line argument. For instance, this command starts the server on port 8080:
+
+$ python manage.py runserver 8080
+
+your apps can live anywhere on your Python path. In this tutorial, we’ll create our poll app in the same directory as your manage.py file so that it can be imported as its own top-level module, rather than a submodule of mysite.
+
+To create your app, make sure you’re in the same directory as manage.py and type this command:
+python manage.py startapp polls
