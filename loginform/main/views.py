@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Question
 from django.http import Http404
+from django.shortcuts import get_object_or_404
 #from django.template import loader
 # Create your views here.
 
@@ -14,10 +15,7 @@ def index(request):
     return render(request, 'main/index.html', context)
 
 def detail(request ,question_id):
-    try: 
-        question = Question.objects.get(pk = question_id)
-    except Question.DoesNotExist: 
-        raise Http404('Question Does Not Exist')
+    question = get_object_or_404(Question,pk = question_id)
     return render(request, 'main/detail.html', {'question': question})
  
 def results(request, question_id): 
